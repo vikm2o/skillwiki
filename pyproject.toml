@@ -1,0 +1,69 @@
+[build-system]
+requires = ["hatchling>=1.25"]
+build-backend = "hatchling.build"
+
+[project]
+name = "skillwiki"
+version = "0.2.0"
+description = "Compile agent experience into a persistent wiki that drives gated skill evolution. Independent reimplementation of WikiSkill (arXiv:2608.27454), storage-agnostic and multimodal."
+readme = "README.md"
+license = "Apache-2.0"
+license-files = ["LICENSE"]
+requires-python = ">=3.11"
+authors = [{ name = "Vikash Ranjan (CTO, styls.ai)" }]
+keywords = ["agents", "skills", "skill-evolution", "wiki", "llm", "wikiskill"]
+classifiers = [
+  "Development Status :: 3 - Alpha",
+  "Intended Audience :: Developers",
+  "License :: OSI Approved :: Apache Software License",
+  "Programming Language :: Python :: 3",
+  "Programming Language :: Python :: 3.11",
+  "Programming Language :: Python :: 3.12",
+  "Programming Language :: Python :: 3.13",
+  "Typing :: Typed",
+  "Topic :: Scientific/Engineering :: Artificial Intelligence",
+]
+dependencies = []
+
+[project.optional-dependencies]
+postgres = ["sqlalchemy[asyncio]>=2.0", "asyncpg>=0.29"]
+s3 = ["boto3>=1.34"]
+gcs = ["google-cloud-storage>=2.16"]
+anthropic = ["anthropic>=0.40"]
+openai = ["openai>=1.40"]
+dev = [
+  "pytest>=8.2",
+  "pytest-asyncio>=0.23",
+  "ruff>=0.6",
+  "moto[s3]>=5.0",
+  "testcontainers[postgres]>=4.5",
+]
+
+[project.scripts]
+skillwiki = "skillwiki.cli:main"
+
+[project.urls]
+Homepage = "https://github.com/vikm2o/skillwiki"
+Paper = "https://arxiv.org/abs/2608.27454"
+
+[tool.hatch.build.targets.wheel]
+packages = ["src/skillwiki"]
+
+[tool.hatch.build.targets.sdist]
+include = ["src/skillwiki", "tests", "docs", "examples", "README.md", "CHANGELOG.md", "LICENSE"]
+
+[tool.ruff]
+line-length = 120
+target-version = "py311"
+
+[tool.ruff.lint]
+select = ["E4", "E7", "E9", "F", "I", "UP", "B"]
+
+[tool.pytest.ini_options]
+asyncio_mode = "auto"
+testpaths = ["tests"]
+markers = [
+  "postgres: needs Docker (testcontainers)",
+  "s3: needs moto",
+  "gcs: needs a GCS emulator",
+]
