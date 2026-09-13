@@ -80,7 +80,7 @@ version, the first incompatible change has to guess what an old document meant.
 
 ### 3.2 Skill layers, overrides and promotion
 Paper: one flat `skills/` directory owned by one loop. skillwiki: a skill set is an ordered list of layers, outer to
-inner (`global` → `tenant` → `project` in QC-Agent), each editable or read-only. The proposer creates, patches and
+inner (for example `global` → `tenant` → `project`), each editable or read-only. The proposer creates, patches and
 retires only in editable layers. A read-only skill that is wrong for this workspace is *overridden* by an inner skill
 that names it; the outer skill stays in the set, hidden from the agent (`SkillSet.render_for_prompt(effective=True)` is the
 agent's rendering; the default is the roles' view, which shows the hidden skill with a note), visible in the diff and the
@@ -111,7 +111,7 @@ Paper: bounded by iteration count and rejection streak only. skillwiki: `Budget(
 max_evaluations, max_seconds)` checked before every model call and every validation. Exhaustion stops the run with
 `stopped_reason="budget_exhausted"`, persists the wiki work already done, and records usage on the report.
 Why: a ReAct proposer against a paid API is the first thing a new adopter runs; without a ceiling a mis-scripted
-loop spends until the iteration cap. Hosts with their own metering (QC-Agent) keep it as a second fence.
+loop spends until the iteration cap. Hosts with their own metering keep it as a second fence.
 
 ### 3.5 The host's candidate is canonical
 Paper: the proposer's output is the candidate. skillwiki: after `SkillStore.propose` materialises the candidate, the
@@ -215,7 +215,7 @@ gates or prompts.
 patterns) the target lacks, keeps their bodies and index lines, stamps every inherited citation
 `meta.source_workspace`, sets `Pattern.inherited_from`, and writes one `[transfer]` log line. Impact history is not
 copied: it records what the target validated. `seed_workspace()` and `skillwiki ... transfer --to` do this over a
-revision store. The optional `evidence_meta` lets a host rewrite provenance on the way in: QC-Agent moves the source
+revision store. The optional `evidence_meta` lets a host rewrite provenance on the way in: the first production host moves the source
 scope's label revision ids to `source_label_revision_ids`, so a project's wiki depends on none of its tenant's labels.
 
 **Why.** An organisation's wiki is the expensive part; a new project should start from it rather than rediscover it.

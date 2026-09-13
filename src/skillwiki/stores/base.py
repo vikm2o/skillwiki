@@ -2,7 +2,7 @@
 """Store protocols. One primitive (``RevisionStore``) and three layer stores built on it.
 
 A host can implement the three layer protocols directly against its own tables
-(as QC-Agent does) or implement only ``RevisionStore`` and use the default
+(a host with its own schema) or implement only ``RevisionStore`` and use the default
 ``Revision*Store`` classes from :mod:`skillwiki.stores.revision`.
 """
 

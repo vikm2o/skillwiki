@@ -6,7 +6,7 @@ Compile agent experience into a persistent wiki that drives gated skill evolutio
 *WikiSkill: Compiling Agent Experience into Persistent Knowledge for Skill Evolution*
 (Tang, Rashtchian, Ferng, Tomkins, Juan, Vu; Google Research; [arXiv:2608.27454](https://arxiv.org/abs/2608.27454)).
 It is not the authors' code and contains no third-party code. Apache-2.0.
-Written by Vikash Ranjan, CTO, [styls.ai](https://styls.ai).
+Written by [Vikash Ranjan](https://www.linkedin.com/in/vikash-ranjan-stylsai/), CTO, [styls.ai](https://styls.ai).
 
 ## What the paper does, and what this package keeps
 
