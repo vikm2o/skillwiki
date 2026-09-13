@@ -6,6 +6,13 @@ Compile agent experience into a persistent wiki that drives gated skill evolutio
 *WikiSkill: Compiling Agent Experience into Persistent Knowledge for Skill Evolution*
 (Tang, Rashtchian, Ferng, Tomkins, Juan, Vu; Google Research; [arXiv:2608.27454](https://arxiv.org/abs/2608.27454)).
 It is not the authors' code and contains no third-party code. Apache-2.0.
+
+The paper's loop is kept exactly; the implementation is **adapted and improved for production deployments**: immutable
+digest-chained storage with PostgreSQL and object-store backends, traces from live production runs instead of fresh
+rollouts, a statistical acceptance gate, hard cost budgets, resume after interruption, wiki pruning for long-running
+loops, layered shared skills, redaction, and an operator CLI. Each change and its reason is listed below and in
+[`docs/paper-differences.md`](docs/paper-differences.md).
+
 Written by [Vikash Ranjan](https://www.linkedin.com/in/vikash-ranjan-stylsai/), CTO, [styls.ai](https://styls.ai).
 
 ## What the paper does, and what this package keeps

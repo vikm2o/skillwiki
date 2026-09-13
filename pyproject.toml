@@ -5,7 +5,7 @@ build-backend = "hatchling.build"
 [project]
 name = "skillwiki"
 version = "0.2.0"
-description = "Compile agent experience into a persistent wiki that drives gated skill evolution. Independent reimplementation of WikiSkill (arXiv:2608.27454), storage-agnostic and multimodal."
+description = "Compile agent experience into a persistent wiki that drives gated skill evolution. Independent reimplementation of WikiSkill (arXiv:2608.27454), adapted and improved for production deployments: storage-agnostic, multimodal, budgeted, resumable."
 readme = "README.md"
 license = "Apache-2.0"
 license-files = ["LICENSE"]
