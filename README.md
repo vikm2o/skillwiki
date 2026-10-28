@@ -13,7 +13,7 @@ rollouts, a statistical acceptance gate, hard cost budgets, resume after interru
 loops, layered shared skills, redaction, and an operator CLI. Each change and its reason is listed below and in
 [`docs/paper-differences.md`](docs/paper-differences.md).
 
-Written by [Vikash Ranjan](https://www.linkedin.com/in/vikash-ranjan-stylsai/), CTO, [styls.ai](https://styls.ai).
+Written by [Vikash Ranjan](https://www.linkedin.com/in/ranjan-vikash/), CTO, [styls.ai](https://styls.ai).
 
 ## What the paper does, and what this package keeps
 
